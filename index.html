@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <script defer src="./src/main.js"></script>
+</head>
+<body>
+    <main class="mainContainer">
+        <h1>My Budget Planer</h1>
+        <section class="budgetSummary">
+            <div class="minicard primary">
+                <div>
+                    <span>Budget: $</span>
+                    <span class="valueBudget">2000</span>
+                </div>
+                <button class="btn btnEdit danger">Edit</button>
+            </div>
+            <div  class="minicard minicardRemaining success">
+                <div>
+                    <span>Remaining: $</span>
+                    <span class="valueRemaining">2000</span>
+                </div>
+            </div>
+            <div  class="minicard secondary">
+                <div>
+                    <span>Spend so far:</span>
+                    <span class="valueSpend">0</span>
+                </div>
+            </div>
+        </section>
+        <h2>Expenses</h2>
+        <section class="expenseSearch">
+            <input type="text" class="inputSearch" placeholder="Search">
+            <div class="containerListExpenses">
+                <ul class="listExpenses">
+                </ul>
+            </div>
+        </section>
+        <h2>Add Expense</h2>
+        <section class="addExpense">
+            <form class="formExpense">
+                <div class="formControl">
+                    <label for="name">
+                        Name 
+                    </label>
+                    <input id="name"  class="inputName" type="text" placeholder="Name expense">
+                </div>
+                <div class="formControl">
+                    <label for="price">
+                        Price
+                    </label>
+                    <input type="text" id="price" class="inputPrice" placeholder="Price expense">
+                </div>
+                <div class="formControl">
+                    <button class="btn btnAdd danger">Add</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
