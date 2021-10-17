@@ -11,8 +11,23 @@ const minicardRemainingDOM = document.querySelector('.minicardRemaining')
 const btnEditDOM = document.querySelector('.btnEdit')
 const inputSearchDOM = document.querySelector('.inputSearch')
 
-let valueBudget = Number(valueBudgetDOM.innerHTML)
+function getBudget() {
+    let budget
+    if (window.localStorage.getItem('budgetInit')) {
+        budget =  window.localStorage.getItem('budgetInit')
+    } else {
+        window.localStorage.setItem('budgetInit', Number(valueBudgetDOM.innerHTML))
+        budget = window.localStorage.getItem('budgetInit')
+    }
+    return budget
+}
+
+let valueBudget = getBudget()
 let listExpense = []
+
+valueBudgetDOM.textContent = valueBudget
+
+updateValues(valueBudget, listExpense)
 
 formDOM.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -46,7 +61,9 @@ btnEditDOM.addEventListener('click', () => {
         newInput.value = valueBudget
         valueBudgetDOM.appendChild(newInput)
     } else {
-        valueBudget = Number(document.querySelector('.newValue').value)
+        window.localStorage.setItem('budgetInit', Number(document.querySelector('.newValue').value))
+        valueBudget = window.localStorage.getItem('budgetInit')
+        console.log(typeof valueBudget)
         valueBudgetDOM.removeChild(valueBudgetDOM.lastChild)
         valueBudgetDOM.textContent = valueBudget
         btnEditDOM.textContent = 'Edit'
